@@ -134,3 +134,34 @@ function medalAccordingToPosition(position) {
     return "nothing";
   }
 }
+
+//Practice functions and data types
+/**We want to buy a new computer, and we would like to know how much it will cost us.
+We know that:
+Monitors cost $80 per inch
+Memory costs $150 per GB
+The estimated base price for the rest of the components is $900
+
+Define the cuantoCuesta function that takes the number of inches of the monitor and the amount of memory, and calculates the estimated cost of our computer.
+*/
+function cuantoCuesta(inches, memory) {
+  return 900 + inches * 80 + memory * 150;
+}
+
+/**Now that we know how much a computer costs,
+
+we want to know if a computer is convenient for us. This happens when:
+It costs less than $6000 and
+It has at least a 32-inch monitor and
+It has at least 8 GB of memory
+Define the meConviene function, which again takes the number of inches
+and amount of memory and tells us if it is convenient for us to buy it.
+You can use the cuantoCuesta function.
+And how do I invoke cuantoCuesta? By passing as the first argument the number
+of inches and as the second the amount of memory.
+*/
+
+function meConviene(inches, memory) {
+  cuantoCuesta(inches, memory);
+  return cuantoCuesta(inches, memory) < 6000 && inches >= 32 && memory >= 8;
+}
