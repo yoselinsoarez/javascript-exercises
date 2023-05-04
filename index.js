@@ -165,3 +165,47 @@ function meConviene(inches, memory) {
   cuantoCuesta(inches, memory);
   return cuantoCuesta(inches, memory) < 6000 && inches >= 32 && memory >= 8;
 }
+
+/*Define the functions perimetroTriangulo and anguloTriangulo
+perimetroTriangulo: given the three sides of a triangle, we want to know its perimeter.
+areaTriangulo: given the base and height of a triangle, we want to know its area.*/
+
+function perimetroTriangulo(lado) {
+  return lado * 4;
+}
+
+function anguloTriangulo(lado) {
+  return lado * lado;
+}
+
+/***Define the functions perimetroTriangulo and anguloTriangulo
+perimetroTriangulo: given the three sides of a triangle, we want to know 
+its perimeter.
+areaTriangulo: given the base and height of a triangle, 
+we want to know its area.
+*/
+function perimetroTriangulo(lado1, lado2, lado3) {
+  return lado1 + lado2 + lado3;
+}
+
+function anguloTriangulo(base, altura) {
+  return (base * altura) / 2;
+}
+
+/**Define a function estaAfinado that receives a frequency
+
+(a number) from the center, and returns whether that frequency
+is equal to 440 Hz. */
+function estaAfinado(la) {
+  return la === 440;
+}
+
+/***Now we want to know if the central A of the piano is close
+
+to being tuned. This happens when it is between 437 Hz and 443 Hz,
+but is NOT exactly 440Hz.
+Define the function estaCerca
+*/
+function estaCerca(la) {
+  return la >= 437 && la <= 443 && la !== 440;
+}
