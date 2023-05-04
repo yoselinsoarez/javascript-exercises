@@ -209,3 +209,60 @@ Define the function estaCerca
 function estaCerca(la) {
   return la >= 437 && la <= 443 && la !== 440;
 }
+
+/***For an important conference, the organizing asked us to write identification cards that each attendee will have.
+To do this, we have to gather their name, last name, and title (dr., Ms., lic., etc.) and put it together into a single string.
+Define the function escribirCartelito that takes a title, a name, and a last name, and forms a single string. */
+
+function escribirCartelito(name, lastName, title) {
+  return title + " " + name + " " + lastName;
+}
+
+/***Sometimes on our identification card, we only want the title and last name, without the name.
+That's why we now have to improve our function escribirCartelito so that it has 4 parameters:
+the title;
+the name;
+the last name;
+a boolean that indicates whether we want a short identification card with only title and last name or a long one, as before.
+Define the function escribirCartelito so that it behaves as described above.
+*/
+
+function escribirCartelito(title, name, lastName, shortPoster) {
+  if (shortPoster) {
+    return title + " " + lastName;
+  } else {
+    return title + " " + name + " " + lastName;
+  }
+}
+
+/***Now that we can write our large and small identification cards,
+we want a new function that gives us the optimal-sized identification card:
+if the name and last name, in total, have more than 15 letters,
+we want a short identification card;
+otherwise, we want a long identification card.
+Define the function escribirCartelitoOptimo that takes a title, a name, and a last name,
+and using escribirCartelito generates a short or long identification card,
+according to the above rules.
+*/
+
+function escribirCartelitoOptimo(title, name, lastName) {
+  return escribirCartelito(
+    title,
+    longitud(name) + longitud(lastName) > 15 || name,
+    lastName,
+    longitud(name) + longitud(lastName) > 15
+  );
+}
+
+/***Define a function decisionConMoneda,
+which takes three parameters and returns the second if the first is "heads,"
+or the third if it comes up "tails".
+*/
+
+function decisionConMoneda(estadoMoneda, opcionCara, opcionCeca) {
+  if (estadoMoneda === "cara") {
+    return opcionCara;
+  } else {
+    return opcionCeca;
+  }
+}
