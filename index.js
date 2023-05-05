@@ -304,3 +304,74 @@ we have already done it for you
 function aumentarFortuna() {
   return (pesosEnMiBilletera *= 2);
 }
+
+/*** Define the usarCierre procedure so that we can open and close
+
+the zipper of a backpack.
+*/
+let backpackOpen = true;
+function usarCierre() {
+  return (backpackOpen = !backpackOpen);
+}
+
+/*** Define esMayorDeEdad, which receives an age,
+
+and then define esMenorDeEdad based on it.
+*/
+function esMayorDeEdad(age) {
+  return age >= 18;
+}
+
+function esMenorDeEdad(age) {
+  return !esMayorDeEdad(age);
+}
+
+/** Define a function esPeripatetico that takes a person's profession,
+
+nationality, and the number of kilometers they walk per day.
+Someone is a peripatetic when they are a Greek philosopher
+and like to walk (they walk more than 2 kilometers per day).
+*/
+function esPeripatetico(profession, nationality, kilometersPerDay) {
+  return (
+    profession === "philosopher" &&
+    nationality === "Greek" &&
+    kilometersPerDay > 2
+  );
+}
+
+/** A friend needed to do some paperwork at the bank,
+
+but when she arrived she noticed that it was closed.
+To avoid it happening again, we are going to define a function
+that helps forgetful people like her.
+We know that the bank is closed when:
+It is a holiday, or
+It is the weekend, or
+We are not within banking hours.
+We have already defined the function dentroDelHorarioBancario,
+which receives an hour (a whole hour from 0 to 23) and tells us
+if it is within the bank's hours of operation.
+Define the functions esFinDeSemana and estaCerrado.
+*/
+function esFinDeSemana(days) {
+  return days === "saturday" && days !== "thursday";
+}
+
+function estaCerrado(isHoliday, days, schedule) {
+  return (
+    isHoliday || esFinDeSemana(days) || !dentroDelHorarioBancario(schedule)
+  );
+}
+
+/** Rala is designing a web page and is focusing on the contrast of its components.
+
+To achieve this, she asked us to define the function tieneContraste
+that receives the font color and the background color of the page as arguments
+and returns whether the page has contrast.
+To start, we already have the function esTonoClaro that takes a color as a parameter
+and returns whether it is light.
+*/
+function tieneContraste(fontColor, backgroundColor) {
+  return esTonoClaro(fontColor) !== esTonoClaro(backgroundColor);
+}
