@@ -200,7 +200,7 @@ function estaAfinado(la) {
   return la === 440;
 }
 
-/***Now we want to know if the central A of the piano is close
+/***Now we want to know if the central A of the radioano is close
 
 to being tuned. This happens when it is between 437 Hz and 443 Hz,
 but is NOT exactly 440Hz.
@@ -265,4 +265,42 @@ function decisionConMoneda(estadoMoneda, opcionCara, opcionCeca) {
   } else {
     return opcionCeca;
   }
+}
+
+/**Define the functions perimetroCirculo and areaCirculo that
+
+receive the radius of a circle and return its perimeter and area
+respectively.
+*/
+function perimetroCirculo(radio, pi) {
+  return 2 * pi * radio;
+}
+function areaCirculo(radio) {
+  return pi * radio * radio;
+}
+
+/**Define a function ascensorSobrecargado that takes a number of people and
+
+returns whether they exceed the maximum load of 300 kg.
+Note that our function will use two global variables:
+pesoPromedioPersonaEnKilogramos, which is already declared, and
+cargaMaximaEnKilogramos, which you will need to declare.
+*/
+let cargaMaximaEnKilogramos = 300;
+
+function ascensorSobrecargado(cantidadPersonas) {
+  return (
+    cantidadPersonas * pesoPromedioPersonaEnKilogramos < cargaMaximaEnKilogramos
+  );
+}
+
+/**Define the procedure aumentarFortuna that doubles the value 
+ * of the global variable
+
+pesosEnMiBilletera. Do not declare the variable, 
+we have already done it for you
+(with a secret amount of money).
+*/
+function aumentarFortuna() {
+  return (pesosEnMiBilletera *= 2);
 }
