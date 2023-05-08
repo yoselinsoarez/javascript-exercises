@@ -375,3 +375,34 @@ and returns whether it is light.
 function tieneContraste(fontColor, backgroundColor) {
   return esTonoClaro(fontColor) !== esTonoClaro(backgroundColor);
 }
+
+/**
+ *Norma can concentrate when programming and drinks infusions, 
+ *but not any infusion. It has to be mate at exactly 80ºC or 
+tea that is at least 95ºC.
+
+Define the function sePuedeConcentrar that receives a drink, 
+its temperature, and a boolean that tells us if Delfi is programming.
+ */
+function sePuedeConcentrar(drink, temperature, isProgramming) {
+  return (
+    ((drink === "mate" && temperature === 80) ||
+      (drink === "tea" && temperature >= 95)) &&
+    isProgramming
+  );
+}
+
+/**In a city amusement park, they installed a new roller coaster and 
+ *asked us for help to tell people if they can get on or not before queuing. 
+The requirements to ride the attraction are:
+
+Reach the minimum height of 1.5m (or 1.2m if accompanied by an adult person)
+Not having any heart condition.
+
+Define the function puedeSubirse that receives three parameters: 
+a person's height in meters, whether they are accompanied, and whether they have 
+any heart condition. */
+
+function puedeSubirse(height, accompanied, heartCondition) {
+  return (height >= 1.5 || (height >= 1.2 && accompanied)) && !heartCondition;
+}
