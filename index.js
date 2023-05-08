@@ -406,3 +406,68 @@ any heart condition. */
 function puedeSubirse(height, accompanied, heartCondition) {
   return (height >= 1.5 || (height >= 1.2 && accompanied)) && !heartCondition;
 }
+
+/** Define the "trasladar" procedure, which takes two lists and an element from the first.
+
+trasladar should remove the element from the first list and add it to the second.
+*/
+function trasladar(lista1, lista2, elemento) {
+  remover(lista1, elemento);
+  agregar(lista2, elemento);
+}
+
+/*** Define the "contiene" function that tells us whether a list contains a certain element.
+ */
+function posicion(lista, elemento) {
+  for (let i = 0; i < lista.length; i++) {
+    if (lista[i] === elemento) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+function contiene(lista, elemento) {
+  return posicion(lista, elemento) !== -1;
+}
+
+/** Redefine the "medallaSegunPuesto" function, but this time using at most a single if statement.
+
+Perhaps lists can be useful here.
+We remind you what the function does: it must return the medal that corresponds to the top positions in a competition.
+Hint:
+How can a list be useful here? If we had a list with the medals, the position can help us know which one corresponds.
+*/
+//This is the definition of the "medallaSegunPuesto" function that receives a parameter called "puesto" (position).
+function medallaSegunPuesto(puesto) {
+  let medallas = [
+    "oro",
+    "plata",
+    "bronce",
+    "nada",
+  ]; /**A variable called "medallas" is declared, which contains an array with the names of the medals. */
+  let indice =
+    puesto -
+    1; /**A variable called "indice" is declared, which is initialized with the value of "puesto - 1". This is done because arrays in JavaScript start at position 0 and not at position 1. / */
+  let medalla =
+    "nada"; /**A variable called "medalla" is declared, which is initialized with the value of "nada" */
+
+  if (indice < medallas.length) {
+    /**A comparison is made to see if the value of "indice" is less than the size of the "medallas" array. If this is true, then the value that is in the "medallas" array position "indice" is assigned to the "medalla" variable. */
+
+    medalla = medallas[indice];
+  }
+  return medalla; /**Finally, the value of the "medalla" variable is returned. */
+}
+
+/** The "medallaSegunPuesto" function receives a number that represents the position of a participant in a competition and returns the name of the medal that corresponds to them, or "nada" if the position is greater than the number of available medals. */
+
+/** Complete the "saludar" procedure that receives a list of people and prints
+ *a greeting with "hello" for each of them.
+ */
+
+function saludar(personas) {
+  for (let persona of personas) {
+    imprimir("hello " + persona);
+  }
+}
