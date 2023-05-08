@@ -471,3 +471,29 @@ function saludar(personas) {
     imprimir("hello " + persona);
   }
 }
+
+/**Save in variables the records of laGranMuralla and machuPichu monuments.*/
+let laGranMuralla = {
+  name: "The Great Wall",
+  location: "Beijing, China",
+  constructionYear: 1368,
+};
+
+let machuPichu = {
+  name: "Machu Picchu",
+  location: "Cuzco, Peru",
+  constructionYear: 1450,
+};
+
+/**Define a function called "temperatureOfPlanet" that receives a planet's record as
+an argument and returns a string indicating its name and average temperature.
+It should work for any planet!*/
+
+function temperatureOfPlanet(planet) {
+  return (
+    planet.name +
+    " has an average temperature of " +
+    planet.averageTemperature +
+    " degrees"
+  );
+}
