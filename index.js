@@ -551,3 +551,27 @@ If it already has sugar, it doesn't matter, add more sugar. */
 function endulzarMenu(menu) {
   agregar(menu.postre.ingredientes, "azucar");
 }
+
+//Iterations
+/** Try to write gananciaTotal4 that works for 4 elements. */
+function gananciaTotal4(periodBalances) {
+  let sum = 0;
+  sum = sum + periodBalances[0].profit;
+  sum = sum + periodBalances[1].profit;
+  sum = sum + periodBalances[2].profit;
+  sum = sum + periodBalances[3].profit;
+  return sum;
+}
+
+/**for of */
+
+function countPositiveBalances(periodBalances) {
+  let count = 0;
+  for (let balance of periodBalances) {
+    if (balance.profit > 0) {
+      //if the balance was positive
+      count++; //increase the count
+    }
+  }
+  return count;
+}
