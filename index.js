@@ -497,3 +497,57 @@ function temperatureOfPlanet(planet) {
     " degrees"
   );
 }
+
+/** Define the moverArchivo procedure, which receives a record and
+ * a new path and modifies the file with the new path. */
+
+function moverArchivo(archivo, nuevaRuta) {
+  archivo.ruta = nuevaRuta;
+}
+
+/** Define the esDelMilenioPasado function, which receives a file and returns a boolean.
+We want to know if a file is from the past millennium, which happens when its year 
+is before 2000.
+*/
+
+function esDelMilenioPasado(archivo) {
+  let anioDeCreacion = anio(archivo.creacion);
+  return anioDeCreacion < 2000;
+}
+
+/** Define the masDificilDeCocinar function, which receives two dessert records 
+ *as arguments and returns
+the one with more ingredients of the two. */
+
+function masDificilDeCocinar(postre1, postre2) {
+  if (postre1.ingredientes.lenght > postre2.ingredientes.lenght) {
+    return postre1;
+  } else {
+    return postre2;
+  }
+}
+
+/** Define the agregarAPostresRapidos procedure, which takes a list of quick desserts 
+ * and a dessert as a parameter.
+
+If the cooking time is an hour or less, add the record to the list.
+Remember that tiempoDeCoccion is expressed in minutes! Therefore, 
+if we want it to be cooked in an hour or less,
+we have to make sure that tiempoDeCoccion is less than 60 minutes.
+Also, since agregarAPostresRapidos is a procedure, it doesn't have to return anything.
+You just have to add the dessert to the list if it's quick.
+*/
+
+function agregarAPostresRapidos(listaPostresRapidos, unPostre) {
+  if (unPostre.tiempoDeCoccion <= 60) {
+    agregar(listaPostresRapidos, unPostre);
+  }
+}
+
+/** Define the endulzarMenu procedure, which receives a menu record 
+ * and adds sugar to the ingredients of its dessert.
+If it already has sugar, it doesn't matter, add more sugar. */
+
+function endulzarMenu(menu) {
+  agregar(menu.postre.ingredientes, "azucar");
+}
