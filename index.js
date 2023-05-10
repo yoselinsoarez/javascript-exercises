@@ -575,3 +575,80 @@ function countPositiveBalances(periodBalances) {
   }
   return count;
 }
+
+function gananciaTotal(balancesDeUnPeriodo) {
+  let sumatoria = 0;
+  for (let balance of balancesDeUnPeriodo) {
+    sumatoria = sumatoria + balance.ganancia;
+  }
+  return sumatoria;
+}
+
+/**We want to know, given any set of balances, what their average profit is.*/
+
+function gananciaPromedio(balances) {
+  let total = gananciaTotal(balances);
+  let cantidad = longitud(balances);
+
+  let promedio = total / cantidad;
+  return promedio.toPrecision(2);
+}
+
+/**Seeing that we can do everything they ask, we want to know the average profit
+
+of positive balances.
+Define the functions:
+gananciaPositiva, which is the sum of the profits of positive balances
+promedioGananciasPositivas invoking gananciaPositiva and
+cantidadDeBalancesPositivos.
+*/
+function gananciaPositiva(balances) {
+  let sumatoriaGanancias = 0;
+  for (let i = 0; i < balances.lenght; i++) {
+    if (balances[i].ganancia > 0) {
+      sumatoriaGanancias += balances[i].ganancia;
+    }
+  }
+  return sumatoriaGanancias;
+}
+
+function promedioGananciasPositivas(balances) {
+  let cantidad = cantidadaDeBalancesPositivos(balances);
+  if (cantidad > 0) {
+    let sumatoria = gananciaPositiva(balances);
+    return sumatoria / cantidad;
+  } else {
+    return 0;
+  }
+}
+
+/*In the function gananciaPositiva, the ganancia property of the object is accessed
+to check if it is positive and, if so, added to the sumatoriaGanancias variable.
+In the function promedioGananciasPositivas, the function cantidadDeBalancesPositivos is invoked
+to obtain the number of positive balances and the function gananciaPositiva to obtain the
+sum of profits of the positive balances. Then, it calculates the average and returns it.*/
+
+/***Define the function ganancias that takes a list of balances and returns a list
+
+that only has the profits of each one.
+*/
+function ganancias(balancesDeUnPeriodo) {
+  let ganancias = [];
+  for (let balance of balancesDeUnPeriodo) {
+    agregar(ganancias, balance.ganancia);
+  }
+  return ganancias;
+}
+
+/**Define the function balancesPositivos that takes the balances of a period
+
+and returns a list with those whose profit was greater than zero. */
+function balancesPositivos(balancesDeUnPeriodo) {
+  let balances = [];
+  for (let balance of balancesDeUnPeriodo) {
+    if (balance.ganancia > 0) {
+      agregar(balances, balance);
+    }
+  }
+  return balances;
+}
