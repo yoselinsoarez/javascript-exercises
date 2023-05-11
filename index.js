@@ -565,7 +565,7 @@ function gananciaTotal4(periodBalances) {
 
 /**for of */
 
-function countPositiveBalances(periodBalances) {
+function cantidadDeBalancesPositivos(periodBalances) {
   let count = 0;
   for (let balance of periodBalances) {
     if (balance.profit > 0) {
@@ -613,7 +613,7 @@ function gananciaPositiva(balances) {
 }
 
 function promedioGananciasPositivas(balances) {
-  let cantidad = cantidadaDeBalancesPositivos(balances);
+  let cantidad = cantidadDeBalancesPositivos(balances);
   if (cantidad > 0) {
     let sumatoria = gananciaPositiva(balances);
     return sumatoria / cantidad;
@@ -651,4 +651,60 @@ function balancesPositivos(balancesDeUnPeriodo) {
     }
   }
   return balances;
+}
+/** Define the function gananciasDeBalancesPositivos and then use it
+
+with promedio to define promedioDeBalancesPositivos.
+*/
+function gananciasDeBalancesPositivos(balancesDeUnPeriodo) {
+  return ganancias(balancesPositivos(balancesDeUnPeriodo));
+}
+function promediosDeBalancesPositivos(balancesDeUnPeriodo) {
+  return promedio(gananciasDeBalancesPositivos(balancesDeUnPeriodo));
+}
+/** Let's go over a new function, maximo, which allows us to find out
+
+the highest value in a list of numbers.
+Using this new function, define the function maximaGanancia that tells us
+what is the highest gain
+among the balances of a period of time. */
+function maximaGanancia(balancesDeUnPeriodo) {
+  return maximo(ganancias(balancesDeUnPeriodo));
+}
+
+/** Define the function minimaGananciaPositiva that tells us what
+
+is the lowest gain of all positive balances.
+*/
+function minimaGananciaPositiva(lista) {
+  return minimo(gananciasDeBalancesPositivos(lista));
+}
+
+/** Define the functions:
+
+months, which given a list with records returns a list with lucky months,
+filtering those records that had a gain greater than $1000
+luckyMonths which returns those months that were lucky.
+In the months function it is necessary to map, in lucky filter, and
+in luckyMonths you have to use the two previous ones.
+*/
+
+function meses(mesesGana) {
+  let soloMeses = [];
+  for (let item of mesesGana) {
+    agregar(soloMeses, item.mes);
+  }
+  return soloMeses;
+}
+function afortunados(balancesDeUnPeriodo) {
+  let mesesGana = [];
+  for (let item of balancesDeUnPeriodo) {
+    if (item.ganancia > 1000) {
+      agregar(mesesGana, item);
+    }
+  }
+  return mesesGana;
+}
+function luckyMonths(balancesDeUnPeriodo) {
+  return meses(afortunados(balancesDeUnPeriodo));
 }
